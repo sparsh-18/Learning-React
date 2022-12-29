@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "/react-gh-pages/static/js/main.f85ba689.js",
-    "index.html": "/react-gh-pages/index.html",
-    "main.f85ba689.js.map": "/react-gh-pages/static/js/main.f85ba689.js.map"
+    "main.js": "/Learning-React/static/js/main.f85ba689.js",
+    "index.html": "/Learning-React/index.html",
+    "main.f85ba689.js.map": "/Learning-React/static/js/main.f85ba689.js.map"
   },
   "entrypoints": [
     "static/js/main.f85ba689.js"
