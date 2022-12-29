@@ -2,12 +2,21 @@ import React, { useState } from "react";
 
 import { v4 as uuidv4 } from "uuid";
 
+import AddIcon from '@mui/icons-material/Add';
+import { Fab, Zoom } from '@mui/material';
+
 function CreateArea(props) {
   const [noteInput, setInput] = useState({
     key: 0,
     title: "",
     content: "",
   });
+
+  const [clicked, setClick] = useState(false);
+
+  function toggleClick() {
+    setClick(!clicked);
+  }
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -28,25 +37,33 @@ function CreateArea(props) {
       key: uuidv4(),
     });
     setInput({ key: 0, title: "", content: "" });
+    toggleClick();
   }
 
   return (
     <div>
-      <form>
+      <form className="create-note">
         <input
           name="title"
-          placeholder="Title"
+          placeholder={clicked ? "Title" : "New Note"}
           value={noteInput.title}
           onChange={handleChange}
+          onClick={toggleClick}
         />
-        <textarea
+        {clicked && <textarea
           name="content"
           placeholder="Take a note..."
-          rows="3"
+          rows={clicked ? "3": '1'}
           value={noteInput.content}
           onChange={handleChange}
-        />
-        <button onClick={handleClick}>+</button>
+        />}
+
+        <Zoom in={clicked}>
+          <Fab onClick={handleClick}>
+            <AddIcon />
+          </Fab>
+        </Zoom>
+
       </form>
     </div>
   );
